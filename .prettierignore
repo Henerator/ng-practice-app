@@ -1,0 +1,10 @@
+/dist
+/tmp
+/coverage
+/node_modules
+
+**/.browserslistrc
+decorate-angular-cli.js
+.angular
+
+libs/api/src/lib/api

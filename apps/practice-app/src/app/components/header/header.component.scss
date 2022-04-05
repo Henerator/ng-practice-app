@@ -1,0 +1,86 @@
+@import "~@taiga-ui/core/styles/taiga-ui-local";
+
+:host {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    height: var(--header-height);
+    align-items: center;
+    padding: 0 1.25rem;
+    border-bottom: 1px solid var(--tui-base-03);
+    background: var(--tui-base-01);
+}
+
+.logo {
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.dropdown-item {
+    margin-left: 1.25rem;
+}
+
+.header-categories {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-chevron {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    color: var(--tui-text-03);
+    line-height: 0;
+    vertical-align: middle;
+
+    @include transition(transform);
+}
+
+.dropdown-title {
+    color: var(--tui-text-01);
+    font: var(--tui-font-text-m);
+}
+
+.nav-item {
+    height: 2rem; // tui-avatar size=s
+    color: var(--tui-text-01);
+    cursor: pointer;
+    font: var(--tui-font-text-m);
+    line-height: 2rem;
+
+    &.-is-active::after {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--tui-base-05);
+        content: "";
+    }
+
+    &:not(.-is-active) {
+        &::after {
+            display: block;
+            width: 0;
+            height: 1px;
+            background-color: var(--tui-base-04);
+            content: "";
+            transition: width 250ms;
+        }
+
+        &:not(.-is-active):hover::after {
+            width: 100%;
+        }
+    }
+
+    & + & {
+        margin-left: 0.75rem;
+    }
+
+    &.locale-icon {
+        height: 1.85rem;
+        margin-left: 1.25rem;
+    }
+}

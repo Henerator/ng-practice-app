@@ -1,0 +1,14 @@
+<div class="logo" (click)="navToHome()">Practice App</div>
+
+<ng-container *ngIf="navigation$ | async as navigation">
+    <div
+        *ngFor="let link of navigation"
+        (click)="navigate(link.commands)"
+        class="nav-item"
+        [class.-is-active]="currentUrl.includes(link.commands[0])"
+    >
+        {{ link.title }}
+    </div>
+</ng-container>
+
+<!--<app-header-account class="dropdown-item"></app-header-account>-->

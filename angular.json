@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "libs/api",
+    "practice-app": "apps/practice-app",
+    "practice-app-e2e": "apps/practice-app-e2e"
+  }
+}
