@@ -15,9 +15,11 @@ import { AppEffects } from './+state/app.effects';
 import { APP_REDUCER_TOKEN } from './+state/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
+import { HeaderModule } from './components/header/header.module';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, AccountComponent],
     imports: [
         BrowserModule,
 
@@ -40,6 +42,8 @@ import { AppComponent } from './components/app/app.component';
         TuiRootModule,
         TuiDialogModule,
         TuiNotificationsModule,
+
+        HeaderModule,
     ],
     providers: [
         { provide: API_ROOT_URL_TOKEN, useValue: environment.apiRootUrl },

@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from './components/account/account.component';
 
 import { AppRoutingComponent } from './components/app-routing/app-routing.component';
 import { HeaderModule } from './components/header/header.module';
 
 const routes: Routes = [
     {
-        path: 'auth',
-        // loadChildren: ...,
-    },
-    {
         path: '',
         // canActivate: [AccountLoaderGuard],
         children: [
             {
                 path: 'account',
+                component: AccountComponent,
                 // canActivate: [AccountGuard],
-                // loadChildren: ...,
             },
         ],
     },

@@ -11,5 +11,5 @@ This project is meant to help you practice Angular basics, store concept with Ng
 To utilize SCAM, you might want to use the following combination of commands:
 
 ```shell
-nx g m components/your-component --project your-library && nx g c components/your-component --project your-library
+nx g m components/your-module --project your-library && nx g c components/your-component --project your-library
 ```
