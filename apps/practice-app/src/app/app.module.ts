@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { API_ROOT_URL_TOKEN, ApiModule, ApiSecurityModule } from '@app/api';
-import { TUI_SANITIZER, TuiDialogModule, TuiNotificationsModule, TuiRootModule } from '@taiga-ui/core';
+import { TUI_SANITIZER, TuiDialogModule, TuiNotificationsModule, TuiRootModule, TuiSvgModule } from '@taiga-ui/core';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 
 import { environment } from '../environments/environment';
@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { HeaderModule } from './components/header/header.module';
 import { AccountComponent } from './components/account/account.component';
+import { TuiBadgeModule } from '@taiga-ui/kit';
 
 @NgModule({
     declarations: [AppComponent, AccountComponent],
@@ -40,6 +41,8 @@ import { AccountComponent } from './components/account/account.component';
 
         BrowserAnimationsModule,
         TuiRootModule,
+        TuiBadgeModule,
+        TuiSvgModule,
         TuiDialogModule,
         TuiNotificationsModule,
 

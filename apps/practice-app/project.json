@@ -14,8 +14,20 @@
         "polyfills": "apps/practice-app/src/polyfills.ts",
         "tsConfig": "apps/practice-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/practice-app/src/favicon.ico", "apps/practice-app/src/assets"],
-        "styles": ["apps/practice-app/src/styles.scss"],
+        "assets": [
+          "apps/practice-app/src/favicon.ico",
+          "apps/practice-app/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          }
+        ],
+        "styles": [
+          "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+          "apps/practice-app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
