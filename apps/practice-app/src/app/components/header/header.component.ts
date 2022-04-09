@@ -13,8 +13,10 @@ export class HeaderComponent {
 
     constructor(private router: Router) {
         this.navigation$ = of([
-            { title: 'Posts', commands: ['posts'] },
+            { title: 'Books', commands: ['books'] },
+            { title: 'Collection', commands: ['collection'] },
             { title: 'Support', commands: ['support'] },
+            { title: 'Account', commands: ['account'] },
         ]);
     }
 
