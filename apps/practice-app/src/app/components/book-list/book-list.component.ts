@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TuiNotification, TuiNotificationsService } from '@taiga-ui/core';
-import { addBookToCollection, removeBook, retrieveBookList } from '../../+state/books/books.action';
+import { addBookToCollection, loadBookList, removeBook } from '../../+state/books/books.action';
 import { selectBooks } from '../../+state/books/books.selector';
 import { Book } from '../../interfaces/books';
-import { BaseBooksService } from '../../services/books.service';
 
 @Component({
     selector: 'app-book-list',
@@ -14,14 +13,10 @@ import { BaseBooksService } from '../../services/books.service';
 export class BookListComponent implements OnInit {
     books$ = this.store.select(selectBooks);
 
-    constructor(
-        private store: Store,
-        private booksService: BaseBooksService,
-        private notificationsService: TuiNotificationsService,
-    ) {}
+    constructor(private store: Store, private notificationsService: TuiNotificationsService) {}
 
     ngOnInit(): void {
-        this.booksService.getBooks().subscribe((books) => this.store.dispatch(retrieveBookList({ books })));
+        this.store.dispatch(loadBookList());
     }
 
     onRemove(id: string): void {

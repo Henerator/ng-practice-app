@@ -2,34 +2,32 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { ApiModule, ApiSecurityModule, API_ROOT_URL_TOKEN } from '@app/api';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
-import { API_ROOT_URL_TOKEN, ApiModule, ApiSecurityModule } from '@app/api';
 import {
-    TUI_SANITIZER,
+    TuiButtonModule,
     TuiDialogModule,
     TuiNotificationsModule,
     TuiRootModule,
     TuiSvgModule,
-    TuiButtonModule,
+    TUI_SANITIZER,
 } from '@taiga-ui/core';
-import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { TuiBadgeModule, TuiIslandModule } from '@taiga-ui/kit';
-
+import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { environment } from '../environments/environment';
-import { AppEffects } from './+state/app.effects';
-import { AppComponent } from './components/app/app.component';
-import { HeaderModule } from './components/header/header.module';
-import { AccountComponent } from './components/account/account.component';
-import { BookListComponent } from './components/book-list/book-list.component';
+import { BooksEffects } from './+state/books/books.effects';
 import { booksReducer } from './+state/books/books.reducer';
 import { collectionReducer } from './+state/books/collection.reducer';
-import { RouterModule } from '@angular/router';
+import { AccountComponent } from './components/account/account.component';
+import { AppComponent } from './components/app/app.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { CollectionBooksComponent } from './components/collection-books/collection-books.component';
+import { HeaderModule } from './components/header/header.module';
 import { APP_ROUTES } from './routing/app.routes';
 import { BaseBooksService, MockBooksService } from './services/books.service';
-import { CollectionBooksComponent } from './components/collection-books/collection-books.component';
 
 @NgModule({
     declarations: [AppComponent, AccountComponent, BookListComponent, CollectionBooksComponent],
@@ -40,7 +38,7 @@ import { CollectionBooksComponent } from './components/collection-books/collecti
             books: booksReducer,
             collection: collectionReducer,
         }),
-        EffectsModule.forRoot(AppEffects),
+        EffectsModule.forRoot([BooksEffects]),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
 
         RouterModule.forRoot(APP_ROUTES),
